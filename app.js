@@ -2,10 +2,20 @@ const express = require('express')
 const os = require('os')
 const app = express()
 
+app.get('/',(req,resp) =>{
+    return resp.status(200)
+    .json({
+        message:"inicio"
+
+    })
+})
+
+
 app.get('/liveness',(req,resp) =>{
     return resp.status(200)
     .json({
-        message:"Meu app está vivo"
+        message:"Meu app está vivo",
+        path: process.cwd()
 
     })
 })
